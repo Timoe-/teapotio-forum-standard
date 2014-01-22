@@ -1,0 +1,15 @@
+TeapotImageBundle:
+    resource: "@TeapotImageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+TeapotSiteBundle:
+    resource: "@TeapotSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+TeapotBaseUserBundle:
+    resource: "@TeapotBaseUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+TeapotForumBundle:
+    resource: "@TeapotForumBundle/Resources/config/routing.yml"
+    prefix:   /

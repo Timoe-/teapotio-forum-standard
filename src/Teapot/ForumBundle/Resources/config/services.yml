@@ -1,0 +1,20 @@
+parameters:
+    teapot.form.type.wysiwyg_textarea.class: Teapot\ForumBundle\Form\WysiwygTextareaType
+    teapot.form.transformer.html_purifier.class: Exercise\HTMLPurifierBundle\Form\HTMLPurifierTransformer
+    teapot.forum.url.use_id: false
+    teapot.forum.listener.request.class: Teapot\ForumBundle\Listener\RequestListener
+
+services:
+    teapot.form.transformer.html_purifier:
+        class: %teapot.form.transformer.html_purifier.class%
+        arguments: [@exercise_html_purifier.default]
+    teapot.form.type.wysiwyg_textarea:
+        class: %teapot.form.type.wysiwyg_textarea.class%
+        arguments: [@teapot.form.transformer.html_purifier]
+        tags:
+            - { name: form.type, alias: wysiwyg_textarea }
+    teapot.forum.listener.request:
+        class: %teapot.forum.listener.request.class%
+        arguments: [@service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelRequest }

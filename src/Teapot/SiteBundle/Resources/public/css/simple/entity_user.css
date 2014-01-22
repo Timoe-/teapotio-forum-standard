@@ -1,0 +1,53 @@
+.module-top-users {
+  overflow: auto; }
+  .module-top-users .top-user {
+    float: left;
+    margin: 0 0.5%;
+    text-align: center;
+    width: 4%;
+    height: 155px;
+    position: relative; }
+    .module-top-users .top-user .wrap {
+      position: absolute;
+      bottom: 0;
+      width: 100%; }
+    .module-top-users .top-user .bar-graph {
+      margin: 0 25% 3px;
+      width: 50%;
+      background-color: #307abc; }
+    .module-top-users .top-user .module {
+      padding: 2px; }
+    .module-top-users .top-user .avatar {
+      margin: 0 auto;
+      width: 25px;
+      height: 25px; }
+
+.user-profile {
+  overflow: auto; }
+  .user-profile .user-module {
+    text-align: center;
+    float: right;
+    margin-left: 10px; }
+
+@media (max-width: 695px) {
+  .module-top-users {
+    font-size: 10px; }
+    .module-top-users .total-messages {
+      position: relative; }
+    .module-top-users .top-user:nth-child(even) .total-messages {
+      top: -5px; }
+    .module-top-users .top-user:nth-child(odd) .total-messages {
+      top: 3px; }
+    .module-top-users .top-user .avatar {
+      width: 18px;
+      height: 18px; } }
+@media (max-width: 495px) {
+  .module-top-users {
+    font-size: 8px; }
+    .module-top-users .top-user:nth-child(even) .total-messages {
+      top: -5px; }
+    .module-top-users .top-user:nth-child(odd) .total-messages {
+      top: 3px; }
+    .module-top-users .top-user .avatar {
+      width: 10px;
+      height: 10px; } }

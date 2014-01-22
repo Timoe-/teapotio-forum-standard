@@ -1,0 +1,16 @@
+{% extends "TeapotSiteBundle:Layout:default.html.twig" %}
+
+{% block container %}
+
+  {% include "TeapotSiteBundle:Layout:header.html.twig" %}
+
+  {% include "TeapotSiteBundle:Layout:Structure/nav_horizontally.html.twig" %}
+
+  <div class="content-wrapper {% block content_wrapper_class %}{% endblock %}">
+
+    {% block content_wrapper %}
+
+    {% endblock %}
+
+  </div>
+{% endblock %}

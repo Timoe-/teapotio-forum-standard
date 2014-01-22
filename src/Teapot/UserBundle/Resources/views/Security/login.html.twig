@@ -1,0 +1,5 @@
+{% extends "TeapotBaseForumBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+  {% include "TeapotBaseUserBundle:Security:raw/login.html.twig" with {login_error: login_error} %}
+{% endblock %}

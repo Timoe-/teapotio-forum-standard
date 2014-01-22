@@ -1,0 +1,20 @@
+{% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
+
+{% block pagination_up %}
+  {% include "TeapotBaseForumBundle:Modules:pagination.html.twig" with {collection: topics, typeName: 'topics'|trans, containerClass: 'ajax', linkClass: 'to-main' } %}
+{% endblock %}
+
+{% block pagination_bottom %}
+  {% include "TeapotBaseForumBundle:Modules:pagination.html.twig" with {collection: topics, typeName: 'topics'|trans, containerClass: 'ajax', linkClass: 'to-main' } %}
+{% endblock %}
+
+{% block content %}
+  {# Topic Form #}
+  {#% if form is defined and is_granted('IS_AUTHENTICATED_FULLY') == true %}
+    <div class="el form-new-topic-wrap">
+      {% include "TeapotBaseForumBundle:Topic:modules/form.html.twig" with {form: form, board: currentBoard} %}
+    </div>
+  {% endif %#}
+
+  {% include "TeapotBaseForumBundle:Topic:modules/list.html.twig" with {topics: topics, messages_per_page: messages_per_page, currentBoard: currentBoard} %}
+{% endblock %}

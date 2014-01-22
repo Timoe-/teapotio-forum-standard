@@ -1,0 +1,64 @@
+@import 'mcolor'
+
+// User module with graph
+.module-top-users
+    overflow: auto
+    .top-user
+        float: left
+        margin: 0 0.5%
+        text-align: center
+        width: 4%
+        height: 155px
+        position: relative
+        .wrap
+            position: absolute
+            bottom: 0
+            width: 100%
+        .bar-graph
+            margin: 0 25% 3px
+            width: 50%
+            background-color: #307abc
+        .module
+            padding: 2px
+        .avatar
+            margin: 0 auto
+            width: 25px
+            height: 25px
+
+// User profile
+.user-profile
+    overflow: auto
+    .user-module
+        text-align: center
+        float: right
+        margin-left: 10px
+
+@media (max-width: 695px)
+    .module-top-users
+        font-size: 10px
+        .total-messages
+            position: relative
+        .top-user
+            &:nth-child(even)
+                .total-messages
+                    top: -5px
+            &:nth-child(odd)
+                .total-messages
+                    top: 3px
+            .avatar
+                width: 18px
+                height: 18px
+
+@media (max-width: 495px)
+    .module-top-users
+        font-size: 8px
+        .top-user
+            &:nth-child(even)
+                .total-messages
+                    top: -5px
+            &:nth-child(odd)
+                .total-messages
+                    top: 3px
+            .avatar
+                width: 10px
+                height: 10px

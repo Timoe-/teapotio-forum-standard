@@ -1,0 +1,76 @@
+<div class="message-row{% if flag is not null %} message-flagged{% endif %}" id="message-{{ message.position }}">
+
+  {% if flag is not null %}
+    <div class="alert special error message-flagged">
+      <div class="moderation-actions pull-right">
+        <a href="{{ path('ForumFlagIgnore', {flagId: flag.id}) }}" class="">{% trans %}Ignore{% endtrans %}</a>
+        <a href="{{ path('ForumFlagDelete', {flagId: flag.id}) }}" class="">{% trans %}Delete{% endtrans %}</a>
+      </div>
+      <i class="icon-flag"></i>
+      {% trans with {'%total%': flag.users.count} %}The.message.below.was.flagged.%total%.times{% endtrans %}
+    </div>
+  {% endif %}
+
+  <div class="sidebar-message">
+    {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "", user: message.user, size: 50} %}
+
+    <div class="message-heart">
+      {% set isStarred = is_message_starred(message) %}
+      <a href="{% if isStarred == false %}{{ forum_path('ForumMessageStar', message) }}{% else %}{{ forum_path('ForumMessageUnstar', message) }}{% endif %}" class="btn-like btn-toggle" data-toggle-label=""><i class="{% if isStarred == false %}icon-heart-empty{% else %}icon-heart{% endif %}" data-toggle-class="{% if isStarred == true %}icon-heart-empty{% else %}icon-heart{% endif %}"></i></a>
+      {% if stars[message.id]|length != 0 %}{{ stars[message.id]|length }}{% endif %}
+    </div>
+  </div>
+
+  <div class="message-author">
+    <div class="info pull-left">
+      <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: message.user.slug, userId: message.user.id }) }}" class="to-main">{{ message.user.username }}</a>
+    </div>
+    <div class="pull-left">
+      <i class="icon icon-comment"></i>
+      {{ message.user.forumStat.totalMessage }}
+    </div>
+    <div class="message-date-created">
+      {{ message.dateCreated|date }}
+    </div>
+    <div class="message-date-created-time-since">
+      {{ message.dateCreated|timeSince(1) }}
+    </div>
+  </div>
+
+  <div class="message-body">
+    <p>{{ message.body|raw }}</p>
+  </div>
+
+  <div class="message-footer">
+    {% if app.user|can_create_message(message.topic.board) == true %}
+      <a href="#"><i class="icon-reply"></i> {#% trans %}Reply{% endtrans %#}</a>
+      <a href="#"><i class="icon-quote-left"></i> {#% trans %}Quote{% endtrans %#}</a>
+    {% endif %}
+
+    <a href="{{ forum_path("ForumMessageFlag", message) }}" class="btn-toggle" data-toggle-label=" {% trans %}Flagged{% endtrans %}">
+      <i class="icon-flag"></i>
+      {#% trans %}Flag{% endtrans %#}
+    </a>
+
+    {% if app.user|can_edit(message) == true %}
+      {% if message.isTopicBody == true %}
+        {% set edit_path = forum_path("ForumTopicEdit", topic) %}
+        {% set class = 'to-main' %}
+      {% else %}
+        {% set edit_path = forum_path("ForumMessageEdit", message) %}
+        {% set class = 'to-main' %}
+      {% endif %}
+
+      <a href="{{ edit_path }}" class="{{ class }}">
+        <i class="icon-pencil"></i>
+      </a>
+    {% endif %}
+
+    {% if app.user|can_delete(message) == true %}
+      <a href="{{ forum_path("ForumMessageDelete", message) }}" class="btn-toggle" data-toggle-label=" {% if message.isDeleted == true %}{% trans %}Delete{% endtrans %}{% else %}{% trans %}Undelete{% endtrans %}{% endif %}">
+        <i class="icon-remove"></i>
+        {% if message.isDeleted == true %}{% trans %}Undelete{% endtrans %}{% endif %}{#% else %}{% trans %}Delete{% endtrans %}{% endif %#}
+      </a>
+    {% endif %}
+  </div>
+</div>

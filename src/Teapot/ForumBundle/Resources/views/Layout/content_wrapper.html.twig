@@ -1,0 +1,120 @@
+{% block boards %}
+
+{% endblock %}
+
+<div class="nav-action">
+  <div class="nav-action-btn-grp">
+    {% if currentBoard is defined and currentBoard is not null %}
+      {% if app.user|can_create_topic(currentBoard) == true %}
+        <a href="{{ forum_path("ForumNewTopic", currentBoard) }}" class="nav-action-btn btn-new-topic to-main">
+          <i class="icon-pencil"></i>
+          {% trans %}New.topic{% endtrans %}
+        </a>
+      {% endif %}
+
+      {% if app.user|can_create_board(currentBoard) == true %}
+        <a href="{{ forum_path("ForumNewBoardInBoard", currentBoard) }}" class="nav-action-btn btn-new-board to-main">
+          <i class="icon-plus-sign"></i>
+          {% trans %}New.board{% endtrans %}
+        </a>
+      {% endif %}
+
+      {% if app.user|can_edit(currentBoard) == true %}
+        <a href="{{ forum_path("ForumEditBoard", currentBoard) }}" class="nav-action-btn btn-edit-board to-main">
+          <i class="icon-cog"></i>
+          {% trans %}Edit.board{% endtrans %}
+        </a>
+      {% endif %}
+    {% else %}
+      {% if app.user|can_create_topic(null) == true %}
+        <a href="{{ forum_path("ForumNewTopicWithoutBoard") }}" class="nav-action-btn btn-new-topic to-main">
+          <i class="icon-pencil"></i>
+          {% trans %}New.topic{% endtrans %}
+        </a>
+      {% endif %}
+
+      {% if app.user|can_create_board(null) == true %}
+        <a href="{{ forum_path("ForumNewBoard") }}" class="nav-action-btn btn-new-board to-main">
+          <i class="icon-plus-sign"></i>
+          {% trans %}New.board{% endtrans %}
+        </a>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  {% if app.user|can_search == true %}
+    <div class="search">
+      <label>
+        <i class="icon-search"></i>
+        <input type="text" placeholder="{% trans %}Search{% endtrans %}" />
+      </label>
+    </div>
+  {% endif %}
+</div>
+
+{% if info_notices is defined and info_notices is not empty %}
+  <div class="admin-notice alert special info">
+    <i class="icon-info-sign"></i>
+    {% if info_notice_links is defined %}
+      <div class="actions">
+        {% for link in info_notice_links %}
+          <a href="{{ link.path }}">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% for msg in info_notices %}
+      {{ msg }}
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="content{% block content_wrapper_class %}{% endblock %}">
+  <div class="content-info content-info-top">
+    {% block pagination_up %}
+
+    {% endblock %}
+
+    <div class="pull-right">
+      {% block tools_up %}
+      {% endblock %}
+    </div>
+    <div class="breadcrumb">
+      {% block breadcrumbs_up %}
+
+        {% if currentBoard is not defined %}
+          {% set currentBoard = null %}
+        {% endif %}
+
+        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: currentBoard, showRoot: true, topic: null} %}
+
+      {% endblock %}
+    </div>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+  <div class="content-info content-info-bottom">
+    {% block pagination_bottom %}
+    {% endblock %}
+
+    <div class="pull-right">
+      {% block tools_bottom %}
+      {% endblock %}
+    </div>
+    <div class="breadcrumb">
+      {% block breadcrumbs_bottom %}
+
+        {% if currentBoard is not defined %}
+          {% set currentBoard = null %}
+        {% endif %}
+
+        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: currentBoard, showRoot: true, topic: null} %}
+
+      {% endblock %}
+    </div>
+  </div>
+</div>
+
+{% block footer %}
+{% endblock %}

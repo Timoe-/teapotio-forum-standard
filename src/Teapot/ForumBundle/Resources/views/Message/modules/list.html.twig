@@ -1,0 +1,8 @@
+{% for message in messages %}
+  {% include "TeapotBaseForumBundle:Message:modules/individualMessageRow.html.twig" with {message: message, flag: flags.get(message.id)} %}
+{% endfor %}
+{% if app.user|can_create_message(topic.board) == true %}
+  <div class="list-message-form">
+    {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {form: form, form_action: forum_path("ForumNewMessage", topic), form_submit_label: 'New.message'} %}
+  </div>
+{% endif %}

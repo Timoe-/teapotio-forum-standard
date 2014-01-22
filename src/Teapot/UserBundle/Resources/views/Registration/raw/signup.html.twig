@@ -1,0 +1,17 @@
+{% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
+
+{% block content_wrapper_class %} registration signup{% endblock %}
+
+{% block content %}
+
+  <form action="{{ path("TeapotBaseUserBundle_signup") }}" method="post" {{ form_enctype(form) }} class="two-col">
+    <h2>{% trans %}Sign.up.message{% endtrans %}</h2>
+
+    {{ form_errors(form) }}
+
+    {{ form_widget(form) }}
+
+    <button class="btn btn-success pull-right">{% trans %}user.signup{% endtrans %}</button>
+  </form>
+
+{% endblock %}

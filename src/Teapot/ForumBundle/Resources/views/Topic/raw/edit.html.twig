@@ -1,0 +1,11 @@
+{% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
+
+{% block content %}
+<form action="" method="post" class="form-new-topic two-col" {{ form_enctype(form) }}>
+  {{ form_errors(form) }}
+
+  {{ form_widget(form) }}
+
+  <button class="btn btn-success">{% trans %}Edit.topic{% endtrans %}</button>
+</form>
+{% endblock %}

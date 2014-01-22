@@ -1,0 +1,18 @@
+{% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
+
+{% block content_wrapper_class %} security-login{% endblock %}
+
+{% block content %}
+
+  <form action="{{ path('TeapotBaseUserBundle_login_check') }}" method="post" class="security-login-form">
+
+    <h2>{% trans %}Login.message{% endtrans %}</h2>
+
+    {% if login_error %}
+      <div class="alert error">{{ login_error.message }}</div>
+    {% endif %}
+
+    {% include "TeapotBaseUserBundle:Modules:form/login.html.twig" with {last_username: last_username} %}
+  </form>
+
+{% endblock %}

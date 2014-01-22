@@ -1,0 +1,30 @@
+parameters:
+    teapot_cache.cache_dir: %kernel.cache_dir%/teapot
+    teapot_cache.cache_engine: 'filesystem'
+
+    teapot_cache.cache_service.class: Teapot\CacheBundle\Service\CacheService
+    teapot_cache.cache_filesystem_service.class: Teapot\CacheBundle\Service\CacheFilesystemService
+    teapot_cache.request_service.class: Teapot\CacheBundle\Service\RequestService
+    teapot_cache.sub_request_listener.class: Teapot\CacheBundle\Listener\SubRequestListener
+    teapot_cache.sub_response_listener.class: Teapot\CacheBundle\Listener\SubResponseListener
+
+services:
+    teapot.cache:
+        class: %teapot_cache.cache_service.class%
+        arguments: [@service_container, %teapot_cache.cache_engine%]
+    teapot.cache.filesystem:
+        class: %teapot_cache.cache_filesystem_service.class%
+        arguments: [%teapot_cache.cache_dir%]
+    teapot.cache.request:
+        class: %teapot_cache.request_service.class%
+        arguments: [@service_container]
+    teapot.cache.listener.sub_request:
+        class: %teapot_cache.sub_request_listener.class%
+        arguments: [@service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    teapot.cache.listener.sub_response:
+        class: %teapot_cache.sub_response_listener.class%
+        arguments: [@service_container]
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }

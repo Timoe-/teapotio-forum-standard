@@ -1,0 +1,9 @@
+{% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
+
+{% block content %}
+    <p class="alert error">{% trans %}The.content.is.restricted.to.guests.please.log.in.or.register.a.new.account{% endtrans %}</p>
+
+    <form action="{{ path('TeapotBaseUserBundle_login_check') }}" method="post" class="security-login-form">
+        {% include "TeapotBaseUserBundle:Modules:form/login.html.twig" with {last_username: ''} %}
+    </form>
+{% endblock %}

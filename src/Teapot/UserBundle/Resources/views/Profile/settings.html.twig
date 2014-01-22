@@ -1,0 +1,5 @@
+{% extends "TeapotBaseForumBundle:Layout:layout.html.twig" %}
+
+{% block content %}
+  {% include "TeapotBaseUserBundle:Profile:raw/settings.html.twig" with {formImage: formImage, formDescription: formDescription, formSettings: formSettings} %}
+{% endblock %}

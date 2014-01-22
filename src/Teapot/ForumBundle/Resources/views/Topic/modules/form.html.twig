@@ -1,0 +1,24 @@
+{#
+  Variables required:
+    - board
+    - form
+#}
+<h2>{% trans %}New.topic{% endtrans %}</h2>
+<form action="{{ forum_path("ForumNewTopic", board) }}" method="post" {{ form_enctype(form) }} class="form-new-topic">
+  {{ form_errors(form) }}
+
+  <div>
+   {% set typeTitle = "Type.title" %}
+   {{ form_widget(form.title, {attr: {placeholder: typeTitle|trans }}) }}
+  </div>
+
+  <div>
+    {% set typeMessage = "With.a.message" %}
+    {{ form_widget(form.body, {attr: {placeholder: typeMessage|trans }}) }}
+  </div>
+
+  {{ form_rest(form) }}
+
+  <button class="btn btn-danger">{% trans %}Cancel{% endtrans %}</button>
+  <button class="btn btn-primary">{% trans %}New.topic{% endtrans %}</button>
+</form>
