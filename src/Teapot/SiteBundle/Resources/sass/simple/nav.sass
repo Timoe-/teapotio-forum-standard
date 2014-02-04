@@ -1,8 +1,9 @@
 @import 'mcolor'
+@import 'melements'
 
 nav#nav-horizontal
-    margin-bottom: 4px
-    border-radius: 3px
+    @include element-border
+    @include element-spaced
     background-color: rgba(0,0,0,0.35)
     font-size: 12px
     a
@@ -22,9 +23,7 @@ nav#nav-horizontal
         display: inline-block
 
 .nav-action
-    margin-bottom: 4px
-    border-radius: 3px
-    background-color: #fdfdfb
+    @include element-spaced
     overflow: auto
     font-size: 14px
     a:hover
@@ -36,7 +35,6 @@ nav#nav-horizontal
     .nav-action-btn,
     .search label
         display: block
-        /*background-color: #2b2b2b*/
     .search
         input,
         input:hover,
@@ -67,9 +65,11 @@ nav#nav-horizontal
             padding: 4px
     .nav-action-btn
         float: left
-        padding: 5px 10px
+        line-height: 17px
+        padding: 8px 12px
         i
             margin-right: 2px
+            font-size: 18px
 .nav-profile
     .avatar
         float: left
@@ -151,19 +151,18 @@ nav#nav-horizontal
         display: block
         overflow: auto
         & > div
+            @include element
             position: relative
             overflow: hidden
             white-space: nowrap
-            border-radius: 3px
-            background-color: #fff
             padding: 0 10px
-            margin: 0 0 6px
+            margin: 0 0 1px
             .info
                 position: absolute
                 top: 0
                 right: 0
                 padding-right: 10px
-                background-color: #fff
+                @include element
             &:hover
                 .new-topic
                     display: block
@@ -220,25 +219,29 @@ nav#nav-horizontal
 #nav-top-users
     display: none
     color: $font-color-primary
-    border-radius: 3px
-    padding: 5px 0
-    margin: 0 0 6px
-    background-color: #fff
+    overflow: auto
+    margin: 0
+    .top-user
+        @include element
+        float: left
+        width: 49.90%
+        margin: 0 0 1px
+        &:nth-child(even)
+            margin-left: 0.20%
 
 #nav-latest-moderation,
 #nav-latest-flags
     display: none
     color: $font-color-primary
-    margin: 0 0 6px
+    margin: 0 0 1px
     ul
         list-style: none
         margin: 0
         padding: 0
     li
+        @include element
         padding: 5px 10px
-        margin: 0 0 6px
-        border-radius: 3px
-        background-color: #fff
+        margin: 0 0 1px
         overflow: auto
         line-height: 24px
         &:first-child
@@ -268,9 +271,9 @@ nav#nav-horizontal
     div#nav-list-boards
         ul
             li.childless-board-wrapper
-                width: 49.5%
+                width: 49.90%
                 &:nth-child(even)
-                    margin-left: 1%
+                    margin-left: 0.20%
         & > ul > li.childless-board-wrapper
             margin-left: 0 !important
             float: none

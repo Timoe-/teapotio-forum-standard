@@ -1,16 +1,16 @@
 .topic-row {
   position: relative;
-  color: #333333;
+  color: #4d4c54;
   position: relative;
-  padding: 4px; }
+  padding: 6px; }
   .topic-row .topic-author {
     position: absolute;
-    top: 5px;
-    left: 5px; }
+    top: 7px;
+    left: 7px; }
   .topic-row .response-author {
     position: absolute;
-    top: 5px;
-    right: 5px; }
+    top: 7px;
+    right: 7px; }
   .topic-row .avatar {
     width: 40px;
     height: 40px; }
@@ -18,12 +18,12 @@
     display: block;
     float: right;
     font-size: 18px;
-    margin: 10px 0 10px 10px;
+    margin: 13px 0 13px 12px;
     line-height: 18px; }
   .topic-row .topic-row-content {
     margin: 0 50px; }
     .topic-row .topic-row-content a:visited {
-      color: #333333; }
+      color: #4d4c54; }
     .topic-row .topic-row-content .topic {
       display: block;
       overflow: auto;
@@ -32,8 +32,10 @@
       .topic-row .topic-row-content .topic:visited {
         color: #333333; }
       .topic-row .topic-row-content .topic .topic-stats {
-        float: right; }
+        float: right;
+        font-size: 12px; }
         .topic-row .topic-row-content .topic .topic-stats i {
+          font-size: 14px;
           margin-left: 8px; }
           .topic-row .topic-row-content .topic .topic-stats i:first-child {
             margin-left: 0; }
@@ -41,9 +43,9 @@
       font-size: 10px;
       line-height: 12px;
       margin: 4px 0;
-      color: #b7b7b7; }
+      color: #aeaeae; }
       .topic-row .topic-row-content .topic-info a {
-        color: #b7b7b7; }
+        color: #aeaeae; }
       .topic-row .topic-row-content .topic-info .date {
         float: right; }
       .topic-row .topic-row-content .topic-info .topic-breadcrumb > * {
@@ -86,18 +88,25 @@
     top: 5px;
     right: 5px; }
   .topic-row:hover .topic-row-content .topic-info {
-    color: #333333; }
+    color: #4d4c54; }
     .topic-row:hover .topic-row-content .topic-info a {
-      color: #333333; }
+      color: #4d4c54; }
 
-.form-new-topic {
-  padding: 10px; }
-  .form-new-topic .control-group label.control-label {
-    width: 14%; }
-  .form-new-topic .control-group div.controls {
-    width: 80%; }
-  .form-new-topic textarea {
-    height: 300px; }
+.topic-header .topic-title input,
+.topic-header .topic-title {
+  margin: 0;
+  font-size: 18px !important;
+  line-height: 30px; }
+
+.content.new-topic form, .content.edit-topic form {
+  border-radius: 0;
+  background-color: transparent; }
+  .content.new-topic form > *, .content.edit-topic form > * {
+    border-radius: 3px;
+    background-color: #fdfdfb; }
+  .content.new-topic form .topic-title input, .content.edit-topic form .topic-title input {
+    padding: 4px 1%;
+    width: 98%; }
 
 @media (max-width: 595px) {
   .topic-row .topic-row-content .topic-stats {

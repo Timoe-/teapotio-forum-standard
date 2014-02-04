@@ -1,0 +1,8 @@
+{# If you modify this markup, don't forget to change the method in MessageService.php accordingly  #}
+{% spaceless %}
+  <!-- start @{{ user.id }} -->
+    <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: user.slug, userId: user.id }) }}">
+      @{{ user.username }}
+    </a>
+  <!-- end -->
+{% endspaceless %}

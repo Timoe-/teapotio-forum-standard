@@ -18,20 +18,24 @@
 
 .content-wrapper {
   margin: 0;
-  color: #333333; }
+  color: #4d4c54; }
   .content-wrapper .module {
     background-color: transparent; }
   .content-wrapper .content > * {
     background-color: #fdfdfb; }
+  .content-wrapper .alert {
+    margin: 0;
+    margin-bottom: 2px; }
   .content-wrapper > .alert {
-    margin: 10px 0; }
-  .content-wrapper > .alert, .content-wrapper .content > * {
     border-radius: 3px; }
+  .content-wrapper .content > * {
+    border-radius: 3px;
+    background-color: #fdfdfb; }
   .content-wrapper h1, .content-wrapper h2, .content-wrapper h3, .content-wrapper h4, .content-wrapper h5, .content-wrapper h6 {
     margin: 0 0 10px; }
 
 .content-info.content-info-top {
-  margin-bottom: 4px; }
+  margin-bottom: 2px; }
 .content-info.content-info-bottom {
   margin-top: 4px; }
 .content-info .breadcrumb,

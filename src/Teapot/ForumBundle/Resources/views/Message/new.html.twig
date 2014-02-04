@@ -1,5 +1,5 @@
 {% extends "TeapotBaseForumBundle:Layout:layout.html.twig" %}
 
 {% block content %}
-  {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {form: form, form_action: forum_path("ForumNewMessage", topic), form_submit_label: 'New.message'} %}
+  {% include "TeapotBaseForumBundle:Message:modules/formNew.html.twig" with {user: app.user, form: form} %}
 {% endblock %}

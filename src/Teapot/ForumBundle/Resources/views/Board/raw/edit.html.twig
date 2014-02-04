@@ -25,7 +25,7 @@
   <div class="module round">
     <h3>{% trans %}Move.topics.and.delete.board{% endtrans %}</h3>
 
-    <form action="{{ forum_path('ForumDeleteBoard', currentBoard) }}" method="post">
+    <form action="{{ forum_path('ForumDeleteBoard', current_board) }}" method="post">
 
       <p class="alert special info">
         <i class="icon-info-sign"></i>
@@ -89,7 +89,7 @@
     <h3>{% trans %}Access.permissions{% endtrans %}</h3>
 
 
-    <form action="{{ forum_path('ForumEditBoardPermissions', currentBoard) }}" method="post">
+    <form action="{{ forum_path('ForumEditBoardPermissions', current_board) }}" method="post">
       <table>
         <tr>
           <th>{% trans %}Groups{% endtrans %}</th>
@@ -103,7 +103,7 @@
 
         {% for group in groups %}
           {% set name = 'permissions[' ~ group.id ~ ']' %}
-          {% include "TeapotForumBundle:Board:modules/permissions/rowGroup.html.twig" with {name: name, group: group, board: currentBoard} %}
+          {% include "TeapotForumBundle:Board:modules/permissions/rowGroup.html.twig" with {name: name, group: group, board: current_board} %}
         {% endfor %}
       </table>
 

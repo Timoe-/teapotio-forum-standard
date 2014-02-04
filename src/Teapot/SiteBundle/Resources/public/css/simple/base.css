@@ -12,5 +12,8 @@ table {
 
 pre {
   background-color: white;
-  color: #333333;
+  color: #4d4c54;
   padding: 15px; }
+
+p {
+  margin: 10px 0; }

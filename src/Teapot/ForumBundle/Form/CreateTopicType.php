@@ -23,10 +23,14 @@ class CreateTopicType extends BaseCreateTopicType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $wysiwygClass = 'wysiwyg';
+
         $builder
             ->add('title')
             ->add('body', 'wysiwyg_textarea', array(
-                'mapped' => false
+                'label'  => false,
+                'mapped' => false,
+                'attr'   => array('class' => $wysiwygClass)
             ))
         ;
     }

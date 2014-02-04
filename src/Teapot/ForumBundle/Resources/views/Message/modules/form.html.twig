@@ -1,31 +1,20 @@
 {#
   Variables required:
+    - user (from parent template)
     - form
-    - form_action
-    - form_submit_label
 #}
 
-<div class="message-row">
-  <div class="sidebar-message">
-    {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "", user: message.user, size: 50} %}
-  </div>
+{% extends "TeapotBaseForumBundle:Message:base/individualMessageRow.html.twig" %}
 
-  <div class="message-author">
-    <div class="info pull-left">
-      <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: message.user.slug, userId: message.user.id }) }}">{{ message.user.username }}</a>
-    </div>
-    <div class="pull-left">
-      <i class="icon icon-comment"></i>
-      {{ message.user.forumStat.totalMessage }}
-    </div>
-  </div>
+{% block row_body %}
 
-  <form action="{{ form_action }}" method="post" {{ form_enctype(form) }} class="message-row-form wysiwyg-editor">
+  <form action="{% block form_path %}{% endblock %}" method="post" class="{% block form_class %}message-row-form wysiwyg-editor{% endblock %}" id="{% block form_id %}{% endblock %}">
 
     {{ form_errors(form) }}
 
     {{ form_widget(form) }}
 
-    <button class="btn btn-success">{{ form_submit_label|trans }}</button>
+    <button class="btn btn-success">{% block form_submit_label %}{% endblock %}</button>
   </form>
-</div>
+
+{% endblock %}

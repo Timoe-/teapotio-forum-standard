@@ -1,0 +1,31 @@
+{% extends "TeapotBaseForumBundle:Topic:modules/form.html.twig" %}
+
+{#
+  Required variables:
+    - form_path
+    - user
+    - board
+    - form
+#}
+
+{% block form_path %}
+  {% if board is null %}
+    {{ forum_path("ForumNewTopicWithoutBoard") }}
+  {% else %}
+    {{ forum_path("ForumNewTopic", board) }}
+  {% endif %}
+{% endblock %}
+
+
+{% block form_class %}
+  form-new-topic
+{% endblock %}
+
+
+{% block topic_body %}
+  {% if board is null %}
+    {% include "TeapotForumBundle:Board:modules/boardPicker.html.twig" %}
+  {% endif %}
+
+  {{ parent() }}
+{% endblock %}

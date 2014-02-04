@@ -5,11 +5,15 @@
 {% if user_stats.count != 0 %}
   {% for stat in user_stats %}
     <div class="top-user">
-      <div class="wrap">
-        <div class="total-messages">{{ stat.shortTotalMessage }}</div>
-        <div class="bar-graph" style="height: {{ 100 * stat.totalMessage / maxPosts }}px;"></div>
-        {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "dark", imageClass: "", user: stat.user, size: 35} %}
-      </div>
+      {% include "TeapotForumBundle:Modules:statLabels.html.twig" with {total_topics: stat.shortTotalTopic, total_messages: stat.shortTotalMessage, nowrap: true} %}
+
+      <div>{{ loop.index }}.</div>
+
+      {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "", imageClass: "", user: stat.user, size: 20} %}
+
+      <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: stat.user.slug, userId: stat.user.id}) }}" class="to-main">
+        {{ stat.user.username }}
+      </a>
     </div>
   {% endfor %}
 {% endif %}

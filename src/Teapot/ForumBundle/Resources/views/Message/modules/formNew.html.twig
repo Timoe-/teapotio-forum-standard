@@ -1,0 +1,16 @@
+{#
+  Variables required:
+    - user (from parent template)
+    - form
+    - form_submit_label
+#}
+
+{% extends "TeapotBaseForumBundle:Message:modules/form.html.twig" %}
+
+{% block form_path %}{{ forum_path("ForumNewMessage", topic) }}{% endblock %}
+
+{% block form_class %}{% endblock %}
+
+{% block form_submit_label %}
+    {% trans %}New.message{% endtrans %}
+{% endblock %}

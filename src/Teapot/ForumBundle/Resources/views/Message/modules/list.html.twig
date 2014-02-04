@@ -1,8 +1,8 @@
 {% for message in messages %}
-  {% include "TeapotBaseForumBundle:Message:modules/individualMessageRow.html.twig" with {message: message, flag: flags.get(message.id)} %}
+  {% include "TeapotBaseForumBundle:Message:modules/individualMessageRow.html.twig" with {message: message, user: message.user, flag: flags.get(message.id)} %}
 {% endfor %}
 {% if app.user|can_create_message(topic.board) == true %}
   <div class="list-message-form">
-    {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {form: form, form_action: forum_path("ForumNewMessage", topic), form_submit_label: 'New.message'} %}
+    {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {user: app.user, form: form, form_action: forum_path("ForumNewMessage", topic), form_submit_label: 'New.message', formId: 'message-reply-to-topic'} %}
   </div>
 {% endif %}

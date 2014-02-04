@@ -29,7 +29,6 @@ class CreateMessageType extends BaseCreateMessageType
             $wysiwygClass .= ' wysiwyg-initial';
         }
 
-
         $builder
             ->add('body', 'wysiwyg_textarea', array(
                 'label' => false,

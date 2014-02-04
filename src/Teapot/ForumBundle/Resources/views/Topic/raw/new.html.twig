@@ -1,23 +1,16 @@
 {% extends "TeapotBaseForumBundle:Layout:content_wrapper.html.twig" %}
 
+{% block content_wrapper_class %} new-topic{% endblock %}
+
 {% block content %}
-<form action="" method="post" class="form-new-topic two-col" {{ form_enctype(form) }}>
-  {{ form_errors(form) }}
 
-  {% if currentBoard is null %}
-    {% spaceless %}
-      <div class="control-group">
-        <label class="control-label required">{% trans %}Board{% endtrans %}</label>
-        <div class="controls">
-          {% set boards = get_boards() %}
-          {% include "TeapotForumBundle:Board:modules/select.html.twig" with {boards: boards, name: "board_id", class: "text-xlarge"} %}
-        </div>
-      </div>
-    {% endspaceless %}
-  {% endif %}
+  {% include "TeapotBaseForumBundle:Topic:modules/formNew.html.twig"
+    with {
+      user:    app.user,
+      form:    form,
+      board:   current_board,
+      message: null
+    }
+  %}
 
-  {{ form_widget(form) }}
-
-  <button class="btn btn-success">{% trans %}Create.topic{% endtrans %}</button>
-</form>
 {% endblock %}

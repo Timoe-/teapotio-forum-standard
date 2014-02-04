@@ -1,4 +1,5 @@
 @import 'mcolor'
+@import 'melements'
 
 .container
     display: block
@@ -23,19 +24,22 @@
     color: $font-color-primary
     .module
         background-color: transparent
-    & .content > *
-        background-color: #fdfdfb
+    .content
+        & > *
+            background-color: #fdfdfb
+    .alert
+        margin: 0
+        @include element-spacing
     & > .alert
-        margin: 10px 0
-    & > .alert,
+        @include element-border
     & .content > *
-        border-radius: 3px
+        @include element
     h1, h2, h3, h4, h5, h6
         margin: 0 0 10px
 
 .content-info
     &.content-info-top
-        margin-bottom: 4px
+        @include element-spacing
     &.content-info-bottom
         margin-top: 4px
     .breadcrumb,

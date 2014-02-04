@@ -32,6 +32,7 @@
       {% endblock %}
     </div>
 
+    {# Consider keeping this here to show your support for Teapot Forum #}
     <footer class="footer" id="bottom">
       <img src="/img/teapot_small_logo.png" alt="Powered by Teapot" />
     </footer>
@@ -43,7 +44,11 @@
     </div>
 
     {% javascripts '@TeapotSiteBundle/Resources/public/js/jquery.js'
-                   '@TeapotSiteBundle/Resources/public/js/redactor/redactor.min.js'
+                   '@TeapotSiteBundle/Resources/public/js/redactor/redactor.js'
+                   '@TeapotSiteBundle/Resources/public/js/teapot/page.js'
+                   '@TeapotSiteBundle/Resources/public/js/teapot/wysiwyg.js'
+                   '@TeapotSiteBundle/Resources/public/js/teapot/ui.js'
+                   '@TeapotSiteBundle/Resources/public/js/teapot/events.js'
                    '@TeapotSiteBundle/Resources/public/js/main.js' %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
     {% endjavascripts %}

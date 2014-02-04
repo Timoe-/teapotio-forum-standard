@@ -1,26 +1,34 @@
+{% if current_board is not defined %}
+  {% set current_board = null %}
+{% endif %}
+
+{% if current_topic is not defined %}
+  {% set current_topic = null %}
+{% endif %}
+
 {% block boards %}
 
 {% endblock %}
 
 <div class="nav-action">
   <div class="nav-action-btn-grp">
-    {% if currentBoard is defined and currentBoard is not null %}
-      {% if app.user|can_create_topic(currentBoard) == true %}
-        <a href="{{ forum_path("ForumNewTopic", currentBoard) }}" class="nav-action-btn btn-new-topic to-main">
+    {% if current_board is defined and current_board is not null %}
+      {% if app.user|can_create_topic(current_board) == true %}
+        <a href="{{ forum_path("ForumNewTopic", current_board) }}" class="nav-action-btn btn-new-topic to-main">
           <i class="icon-pencil"></i>
           {% trans %}New.topic{% endtrans %}
         </a>
       {% endif %}
 
-      {% if app.user|can_create_board(currentBoard) == true %}
-        <a href="{{ forum_path("ForumNewBoardInBoard", currentBoard) }}" class="nav-action-btn btn-new-board to-main">
+      {% if app.user|can_create_board(current_board) == true %}
+        <a href="{{ forum_path("ForumNewBoardInBoard", current_board) }}" class="nav-action-btn btn-new-board to-main">
           <i class="icon-plus-sign"></i>
           {% trans %}New.board{% endtrans %}
         </a>
       {% endif %}
 
-      {% if app.user|can_edit(currentBoard) == true %}
-        <a href="{{ forum_path("ForumEditBoard", currentBoard) }}" class="nav-action-btn btn-edit-board to-main">
+      {% if app.user|can_edit(current_board) == true %}
+        <a href="{{ forum_path("ForumEditBoard", current_board) }}" class="nav-action-btn btn-edit-board to-main">
           <i class="icon-cog"></i>
           {% trans %}Edit.board{% endtrans %}
         </a>
@@ -81,11 +89,7 @@
     <div class="breadcrumb">
       {% block breadcrumbs_up %}
 
-        {% if currentBoard is not defined %}
-          {% set currentBoard = null %}
-        {% endif %}
-
-        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: currentBoard, showRoot: true, topic: null} %}
+        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: current_board, showRoot: true, topic: current_topic} %}
 
       {% endblock %}
     </div>
@@ -105,11 +109,7 @@
     <div class="breadcrumb">
       {% block breadcrumbs_bottom %}
 
-        {% if currentBoard is not defined %}
-          {% set currentBoard = null %}
-        {% endif %}
-
-        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: currentBoard, showRoot: true, topic: null} %}
+        {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: current_board, showRoot: true, topic: current_topic} %}
 
       {% endblock %}
     </div>

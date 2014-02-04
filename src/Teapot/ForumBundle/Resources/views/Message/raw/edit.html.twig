@@ -3,5 +3,5 @@
 {% block content_wrapper_class %} message-edit{% endblock %}
 
 {% block content %}
-  {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {form: form, form_action: forum_path("ForumMessageEdit", message), form_submit_label: 'Edit.message', message: message} %}
+  {% include "TeapotBaseForumBundle:Message:modules/formEdit.html.twig" with {user: message.user, form: form, message: message} %}
 {% endblock %}

@@ -123,6 +123,22 @@ ForumMessageUnstar:
         topicSlug: "[^\/]+"
         messageId: \d+
 
+ForumMessageReply:
+    pattern: /{boardSlug}/{topicSlug}/reply/{messageId}/
+    defaults: { _controller: TeapotForumBundle:Message:reply }
+    requirements:
+        boardSlug: .+?
+        topicSlug: "[^\/]+"
+        messageId: \d+
+
+ForumMessageQuote:
+    pattern: /{boardSlug}/{topicSlug}/quote/{messageId}/
+    defaults: { _controller: TeapotForumBundle:Message:quote }
+    requirements:
+        boardSlug: .+?
+        topicSlug: "[^\/]+"
+        messageId: \d+
+
 # Topic Controller
 ForumListLatestTopics:
     pattern: /

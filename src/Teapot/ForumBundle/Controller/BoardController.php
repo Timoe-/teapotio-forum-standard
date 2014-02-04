@@ -97,7 +97,7 @@ class BoardController extends BaseController
         $params = array(
             'form'          => $form->createView(),
             'board'         => $board,
-            'currentBoard'  => $parentBoard,
+            'current_board' => $parentBoard,
             'page_title'    => $title,
             'info_notices'  => $infoNotices,
         );
@@ -154,10 +154,10 @@ class BoardController extends BaseController
         $title = $this->generateTitle('Edit.%title%', array('%title%' => $board->getTitle()));
 
         $params = array(
-            'form'         => $form->createView(),
-            'currentBoard' => $board,
-            'page_title'   => $title,
-            'groups'       => $groups,
+            'form'          => $form->createView(),
+            'current_board' => $board,
+            'page_title'    => $title,
+            'groups'        => $groups,
         );
 
         if ($this->get('request')->isXmlHttpRequest() === true) {

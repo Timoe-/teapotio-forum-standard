@@ -62,7 +62,7 @@ class MessageController extends BaseController
 
         return $this->render('TeapotBaseForumBundle:Message:new.html.twig', array(
             'form'          => $form->createView(),
-            'currentBoard'  => $board,
+            'current_board' => $board,
             'topic'         => $topic,
             'message'       => $message,
         ));
@@ -74,12 +74,17 @@ class MessageController extends BaseController
 
         $form = $this->createForm(new CreateMessageType(), $message);
 
+        $topic = $this->getTopic();
         $board = $this->getBoard();
 
+        $title = $this->generateTitle('Edit.message');
+
         $params = array(
+            'current_board' => $board,
+            'current_topic' => $topic,
             'form'          => $form->createView(),
-            'currentBoard'  => $board,
-            'message'       => $message
+            'message'       => $message,
+            'page_title'    => $title,
         );
 
         $request = $this->get('request');
@@ -100,7 +105,8 @@ class MessageController extends BaseController
 
         if ($this->get('request')->isXmlHttpRequest() === true) {
             return $this->renderJson(array(
-                'html' => $this->renderView('TeapotBaseForumBundle:Message:raw/edit.html.twig', $params),
+                'title' => $title,
+                'html'  => $this->renderView('TeapotBaseForumBundle:Message:raw/edit.html.twig', $params),
             ));
         }
 
@@ -166,7 +172,7 @@ class MessageController extends BaseController
                     $this->get('teapot.forum.flag')->flag($message, $this->get('security.context')->getToken()->getUser());
                 }
                 break;
-            case 'star':
+            case 'star':die;
                     $this->get('teapot.forum.message_star')->star($message, $this->get('security.context')->getToken()->getUser());
                 break;
             case 'unstar':
@@ -181,6 +187,20 @@ class MessageController extends BaseController
         return $this->redirect(
             $this->get('request')->headers->get('referer')
         );
+    }
+
+    public function quoteAction()
+    {
+        $html = $this->get('teapot.forum.message')->renderBodyQuote($this->getMessage());
+
+        return $this->renderJson(array('html' => $html));
+    }
+
+    public function replyAction()
+    {
+        $html = $this->get('teapot.forum.message')->renderBodyReply($this->getMessage()->getUser());
+
+        return $this->renderJson(array('html' => $html));
     }
 
     public function listAction($boardSlug, $topicSlug)
@@ -222,6 +242,8 @@ class MessageController extends BaseController
             $this->get('teapot.forum.message')->parseBody($message);
         }
 
+        $this->get('teapot.forum.message')->parseOutputBodies($messages);
+
         $title = $this->generateTitle('Messages.in.%title%', array('%title%' => $topic->getTitle()));
 
         $params = array(
@@ -229,7 +251,7 @@ class MessageController extends BaseController
             'messages'          => $messages,
             'flags'             => $flags,
             'stars'             => $stars,
-            'currentBoard'      => $board,
+            'current_board'     => $board,
             'topic'             => $topic,
             'message'           => $form->vars['value'],
             'form'              => $form,

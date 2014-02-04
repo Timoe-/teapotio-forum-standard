@@ -43,15 +43,15 @@ class TopicController extends BaseController
 
         if ($request->getMethod() === 'POST') {
 
+            $form->bind($request);
+
             $boardId = $request->request->get('board_id');
 
-            if ($board === null &&  $boardId === '') {
+            if ($board === null && $boardId === '') {
                 $form->addError(new FormError($this->get('translator')->trans('Board.selected.not.valid')));
             } else if ($boardId !== null) {
                 $board = $this->get('teapot.forum.board')->getById($boardId);
             }
-
-            $form->bind($request);
 
             if ($form->isValid() === true) {
                 $user = $this->get('security.context')->getToken()->getUser();
@@ -82,7 +82,7 @@ class TopicController extends BaseController
 
         $params = array(
             'form'          => $form->createView(),
-            'currentBoard'  => $board,
+            'current_board' => $board,
             'page_title'    => $title,
             'info_notices'  => $infoNotices,
         );
@@ -141,7 +141,9 @@ class TopicController extends BaseController
 
         $params = array(
             'form'          => $form->createView(),
-            'currentBoard'  => $board,
+            'message'       => $message,
+            'topic'         => $topic,
+            'current_board' => $board,
             'page_title'    => $title,
             'info_notices'  => $infoNotices,
         );
@@ -188,7 +190,7 @@ class TopicController extends BaseController
         $params = array(
             'topics_per_page'   => $topicsPerPage,
             'messages_per_page' => $messagesPerPage,
-            'currentBoard'      => null,
+            'current_board'     => null,
             'topics'            => $topics,
             'boards'            => $boards,
             'showBoard'         => true,
@@ -249,7 +251,7 @@ class TopicController extends BaseController
             'topics_per_page'   => $topicsPerPage,
             'messages_per_page' => $messagesPerPage,
             'topics'            => $topics,
-            'currentBoard'      => $board,
+            'current_board'     => $board,
             'showBoard'         => true,
             'page_title'        => $title,
         );

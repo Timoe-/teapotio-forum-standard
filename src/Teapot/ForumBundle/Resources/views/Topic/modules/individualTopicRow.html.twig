@@ -1,45 +1,13 @@
-<div class="topic-row {% if currentBoard is defined and currentBoard is not null and currentBoard.children.count == 0 %}board-childless{% endif %}{% if topic.isPinned == true or topic.isLocked == true %} topic-moderated{% endif %}">
+{% extends "TeapotBaseForumBundle:Topic:base/individualTopicRow.html.twig" %}
 
-  {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "topic-author", user: topic.user, size: 50} %}
-
-  {% if topic.lastUser is not null %}
-    {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "response-author", user: topic.lastUser, size: 50} %}
-  {% endif %}
-
-  <div class="topic-row-content">
-
-    {% if topic.isPinned == true or topic.isLocked == true %}
-      <div class="module round topic-icons">
-        {% if topic.isPinned == true %}
-          <i class="icon-pushpin"></i>
-        {% endif %}
-        {% if topic.isLocked == true %}
-          <i class="icon-lock"></i>
-        {% endif %}
-      </div>
+{% block row_class %}
+  {% spaceless %}
+    {% if current_board is defined and current_board is not null and current_board.children.count == 0 %}
+      board-childless
     {% endif %}
 
-    {% set last_page = get_last_page(topic.totalPosts, messages_per_page) %}
-    <a href="{{ forum_path("ForumListMessagesByTopic", topic) }}{% if last_page > 1 %}?page={{ last_page }}{% endif %}{% if topic.totalPosts != 0 %}#message-{{ topic.totalPosts }}{% endif %}" class="topic-last-page to-main"><i class="icon-chevron-right"></i></a>
-
-    <a href="{{ forum_path("ForumListMessagesByTopic", topic) }}{% if topic.totalPosts != 0 %}#{{ topic.totalPosts }}{% endif %}" class="topic to-main">
-      <div class="topic-stats">
-        <i class="icon-eye-open"></i> {{ topic.shortTotalViews }}
-        <i class="icon-comments-alt"></i> {{ topic.shortTotalPosts }}
-      </div>
-      {{ topic.title }}
-    </a>
-
-    <div class="topic-info">
-      <span class="date">
-        {{ topic.lastMessageDate|timeSince(1) }}
-      </span>
-      {% if showBoard is defined and showBoard == true %}
-        <span class="topic-breadcrumb">
-          {% include "TeapotForumBundle:Board:modules/breadcrumb.html.twig" with {board: topic.board, topic: null} %}
-        </span>
-      {% endif %}
-    </div>
-  </div>
-
-</div>
+    {% if topic.isPinned == true or topic.isLocked == true %}
+      topic-moderated
+    {% endif %}
+  {% endspaceless %}
+{% endblock %}

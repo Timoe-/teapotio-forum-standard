@@ -1,19 +1,20 @@
 @import 'mcolor'
+@import 'melements'
 
 // List of topics
 .topic-row
     position: relative
     color: $font-color-primary
     position: relative
-    padding: 4px
+    padding: 6px
     .topic-author
         position: absolute
-        top: 5px
-        left: 5px
+        top: 7px
+        left: 7px
     .response-author
         position: absolute
-        top: 5px
-        right: 5px
+        top: 7px
+        right: 7px
     .avatar
         width: 40px
         height: 40px
@@ -21,7 +22,7 @@
         display: block
         float: right
         font-size: 18px
-        margin: 10px 0 10px 10px
+        margin: 13px 0 13px 12px
         line-height: 18px
     .topic-row-content
         margin: 0 50px
@@ -36,7 +37,9 @@
                 color: #333
             .topic-stats
                 float: right
+                font-size: 12px
                 i
+                    font-size: 14px
                     margin-left: 8px
                     &:first-child
                         margin-left: 0
@@ -97,15 +100,24 @@
                 a
                     color: $font-color-primary
 
-.form-new-topic
-    padding: 10px
-    .control-group
-        label.control-label
-            width: 14%
-        div.controls
-            width: 80%
-    textarea
-        height: 300px
+.topic-header
+    .topic-title input,
+    .topic-title
+        margin: 0
+        font-size: 18px !important
+        line-height: 30px
+
+.content
+    &.new-topic,
+    &.edit-topic
+        form
+            @include element-reset
+            & > *
+                @include element
+            .topic-title
+                input
+                    padding: 4px 1%
+                    width: 98%
 
 @media (max-width: 595px)
     .topic-row

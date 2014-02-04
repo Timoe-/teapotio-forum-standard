@@ -1,6 +1,8 @@
 nav#nav-horizontal {
-  margin-bottom: 4px;
   border-radius: 3px;
+  border-radius: 3px;
+  background-color: #fdfdfb;
+  margin-bottom: 2px;
   background-color: rgba(0, 0, 0, 0.35);
   font-size: 12px; }
   nav#nav-horizontal a {
@@ -20,9 +22,9 @@ nav#nav-horizontal {
     display: inline-block; }
 
 .nav-action {
-  margin-bottom: 4px;
   border-radius: 3px;
   background-color: #fdfdfb;
+  margin-bottom: 2px;
   overflow: auto;
   font-size: 14px; }
   .nav-action a:hover {
@@ -33,8 +35,7 @@ nav#nav-horizontal {
     margin-right: 10px; }
   .nav-action .nav-action-btn,
   .nav-action .search label {
-    display: block;
-    /*background-color: #2b2b2b */ }
+    display: block; }
   .nav-action .search input,
   .nav-action .search input:hover,
   .nav-action .search input:focus,
@@ -67,9 +68,11 @@ nav#nav-horizontal {
     padding: 4px; }
   .nav-action .nav-action-btn {
     float: left;
-    padding: 5px 10px; }
+    line-height: 17px;
+    padding: 8px 12px; }
     .nav-action .nav-action-btn i {
-      margin-right: 2px; }
+      margin-right: 2px;
+      font-size: 18px; }
 
 .nav-profile .avatar {
   float: left;
@@ -116,7 +119,7 @@ nav#nav-horizontal {
   #nav-user a:nth-child(n+2) {
     font-size: 11px;
     margin-left: 4px;
-    color: #b7b7b7; }
+    color: #aeaeae; }
 
 #nav-components {
   display: none;
@@ -151,19 +154,20 @@ nav#nav-horizontal {
     display: block;
     overflow: auto; }
     #nav-list-boards li > div {
+      border-radius: 3px;
+      background-color: #fdfdfb;
       position: relative;
       overflow: hidden;
       white-space: nowrap;
-      border-radius: 3px;
-      background-color: white;
       padding: 0 10px;
-      margin: 0 0 6px; }
+      margin: 0 0 1px; }
       #nav-list-boards li > div .info {
         position: absolute;
         top: 0;
         right: 0;
         padding-right: 10px;
-        background-color: white; }
+        border-radius: 3px;
+        background-color: #fdfdfb; }
       #nav-list-boards li > div:hover .new-topic {
         display: block; }
       #nav-list-boards li > div:hover .new-board,
@@ -204,7 +208,7 @@ nav#nav-horizontal {
   #nav-list-boards .total-messages {
     float: right;
     margin-left: 8px;
-    color: #b7b7b7; }
+    color: #aeaeae; }
   #nav-list-boards .new-board {
     margin-left: 16px; }
   #nav-list-boards > ul {
@@ -218,17 +222,23 @@ nav#nav-horizontal {
 
 #nav-top-users {
   display: none;
-  color: #333333;
-  border-radius: 3px;
-  padding: 5px 0;
-  margin: 0 0 6px;
-  background-color: white; }
+  color: #4d4c54;
+  overflow: auto;
+  margin: 0; }
+  #nav-top-users .top-user {
+    border-radius: 3px;
+    background-color: #fdfdfb;
+    float: left;
+    width: 49.9%;
+    margin: 0 0 1px; }
+    #nav-top-users .top-user:nth-child(even) {
+      margin-left: 0.2%; }
 
 #nav-latest-moderation,
 #nav-latest-flags {
   display: none;
-  color: #333333;
-  margin: 0 0 6px; }
+  color: #4d4c54;
+  margin: 0 0 1px; }
   #nav-latest-moderation ul,
   #nav-latest-flags ul {
     list-style: none;
@@ -236,10 +246,10 @@ nav#nav-horizontal {
     padding: 0; }
   #nav-latest-moderation li,
   #nav-latest-flags li {
-    padding: 5px 10px;
-    margin: 0 0 6px;
     border-radius: 3px;
-    background-color: white;
+    background-color: #fdfdfb;
+    padding: 5px 10px;
+    margin: 0 0 1px;
     overflow: auto;
     line-height: 24px; }
     #nav-latest-moderation li:first-child,
@@ -265,9 +275,9 @@ nav#nav-horizontal {
     width: 100%; } }
 @media (max-width: 695px) {
   div#nav-list-boards ul li.childless-board-wrapper {
-    width: 49.5%; }
+    width: 49.9%; }
     div#nav-list-boards ul li.childless-board-wrapper:nth-child(even) {
-      margin-left: 1%; }
+      margin-left: 0.2%; }
   div#nav-list-boards > ul > li.childless-board-wrapper {
     margin-left: 0 !important;
     float: none;
