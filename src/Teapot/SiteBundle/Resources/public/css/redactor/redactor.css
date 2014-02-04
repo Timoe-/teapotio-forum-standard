@@ -76,10 +76,6 @@ body .redactor_box_fullscreen {
     box-shadow: none !important;
     white-space: normal;
 }
-.redactor_editor a {
-    color: #15c !important;
-    text-decoration: underline !important;
-}
 
 .redactor_editor .redactor_placeholder {
     color: #999 !important;

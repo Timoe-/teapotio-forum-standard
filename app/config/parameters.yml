@@ -3,7 +3,7 @@ parameters:
     database_driver: pdo_mysql
     database_host: localhost
     database_port: null
-    database_name: cornichon_duo
+    database_name: experimentation
     database_user: root
     database_password: null
     mailer_transport: smtp
@@ -12,4 +12,4 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    forum_title: Cornichons loverZ
+    forum_title: Teapot

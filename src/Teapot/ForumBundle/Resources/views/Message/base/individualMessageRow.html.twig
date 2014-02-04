@@ -18,7 +18,7 @@
 
       {% block row_sidebar_content %}
 
-        {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "", user: user, size: 50} %}
+        {% include "TeapotUserBundle:Modules:avatar.html.twig" with {class: "", user: user, size: 80} %}
 
       {% endblock %}
 
@@ -34,10 +34,10 @@
       {% block row_author_prefix %}{% endblock %}
 
       {% block row_author_content %}
-        <div class="info pull-left">
+        <div class="info">
           <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: user.slug, userId: user.id }) }}" class="to-main">{{ user.username }}</a>
         </div>
-        <div class="pull-left">
+        <div class="user-message-count">
           <i class="icon icon-comment"></i>
           {{ user.forumStat.totalMessage }}
         </div>

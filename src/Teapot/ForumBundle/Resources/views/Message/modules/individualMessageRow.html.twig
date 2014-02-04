@@ -38,13 +38,6 @@
 {% endblock %}
 
 
-{% block row_sidebar_suffix %}
-  {% if stars is defined and show_action_buttons == true %}
-    {% include "TeapotForumBundle:Message:modules/buttonStar.html.twig" with {message: message, count: stars[message.id]|length} %}
-  {% endif %}
-{% endblock %}
-
-
 {% block row_author_suffix %}
   {% include "TeapotBaseForumBundle:Message:modules/date.html.twig" with {message: message} %}
 {% endblock %}
@@ -57,6 +50,10 @@
 
 {% block row_footer_content %}
   {% if show_action_buttons == true %}
+
+    {#% if stars is defined %}
+      {% include "TeapotForumBundle:Message:modules/buttonStar.html.twig" with {message: message, count: stars[message.id]|length} %}
+    {% endif %#}
 
     {% if app.user|can_create_message(message.topic.board) == true %}
       <a href="{{ forum_path("ForumMessageReply", message) }}" class="message-reply">

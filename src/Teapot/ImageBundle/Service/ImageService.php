@@ -65,8 +65,8 @@ class ImageService {
     public function setup()
     {
         $image = $this->createImage();
-        $image->setName('Default admin avatar');
-        $image->setPath('default_admin_avatar.png');
+        $image->setName('Default avatar');
+        $image->setPath('default_avatar.png');
 
         $this->save($image);
 

@@ -3,6 +3,6 @@
 {% endfor %}
 {% if app.user|can_create_message(topic.board) == true %}
   <div class="list-message-form">
-    {% include "TeapotBaseForumBundle:Message:modules/form.html.twig" with {user: app.user, form: form, form_action: forum_path("ForumNewMessage", topic), form_submit_label: 'New.message', formId: 'message-reply-to-topic'} %}
+    {% include "TeapotBaseForumBundle:Message:modules/formNew.html.twig" with {user: app.user, form: form, form_id: 'message-reply-to-topic'} %}
   </div>
 {% endif %}

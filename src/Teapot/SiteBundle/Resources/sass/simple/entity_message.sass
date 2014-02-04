@@ -1,4 +1,5 @@
 @import 'mcolor'
+@import 'melements'
 
 // List of message
 .message-list
@@ -15,15 +16,13 @@
                 margin-left: 0
 
 .message-row,
-.topic-header,
-.control-group
+.topic-header
     padding: 10px
 
 .message-row
+    overflow: auto
     position: relative
     font-size: 14px
-    img
-        max-width: 100%
     blockquote
         overflow: auto
         padding: 5px 8px
@@ -42,11 +41,11 @@
             display: block
         .message-date-created-time-since
             display: none
-    & > .avatar,
-    .sidebar-message
-        width: 50px
-    & > .avatar
-        height: 50px
+    & .avatar
+        width: 80px
+        height: 80px
+        img
+            @include element-border
     .module-stars
         display: inline-block
         padding: 0
@@ -66,7 +65,9 @@
             text-decoration: none
     .message-author,
     .message-body
-        margin-left: 60px
+        margin-left: 90px
+    .message-body
+        padding-bottom: 25px
     .message-heart
         font-size: 16px
         font-weight: bold
@@ -76,8 +77,8 @@
         overflow: auto
         color: $font-color-secondary
         & > *
+            float: left
             font-size: 10px
-            padding: 0 12px 0 0
             margin: 0
         .info
             font-size: 16px
@@ -85,14 +86,13 @@
                 margin-left: 6px
         .action > * + *
             margin-left: 6px
+        .user-message-count
+            margin-left: 10px
         .message-date-created,
         .message-date-created-time-since
             float: right
         .message-date-created
             display: none
-    .message-body
-        padding: 0 10px 0 0
-        margin-bottom: 30px
     textarea
         height: 100px
         width: 98%
@@ -118,9 +118,9 @@
     .sidebar-message
         float: left
         text-align: center
-        padding-right: 10px
     .message-row
-        margin-bottom: 10px
+        padding-bottom: 0
+        margin: 10px 0
         -moz-box-shadow:    0px 0px 5px rgba(0,0,0,0.15)
         -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.15)
         box-shadow:         0px 0px 5px rgba(0,0,0,0.15)
@@ -128,6 +128,9 @@
             width: 25px
             height: 25px
         .message-author
+            .info
+                margin-left: 8px
+                font-size: 14px
             & > *
                 line-height: 25px
         .message-body

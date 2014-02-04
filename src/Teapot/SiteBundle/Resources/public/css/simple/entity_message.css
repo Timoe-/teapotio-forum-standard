@@ -11,15 +11,13 @@
       margin-left: 0; }
 
 .message-row,
-.topic-header,
-.control-group {
+.topic-header {
   padding: 10px; }
 
 .message-row {
+  overflow: auto;
   position: relative;
   font-size: 14px; }
-  .message-row img {
-    max-width: 100%; }
   .message-row blockquote {
     overflow: auto;
     padding: 5px 8px;
@@ -36,11 +34,11 @@
     display: block; }
   .message-row .message-author:hover .message-date-created-time-since {
     display: none; }
-  .message-row > .avatar,
-  .message-row .sidebar-message {
-    width: 50px; }
-  .message-row > .avatar {
-    height: 50px; }
+  .message-row .avatar {
+    width: 80px;
+    height: 80px; }
+    .message-row .avatar img {
+      border-radius: 3px; }
   .message-row .module-stars {
     display: inline-block;
     padding: 0; }
@@ -60,7 +58,9 @@
       text-decoration: none; }
   .message-row .message-author,
   .message-row .message-body {
-    margin-left: 60px; }
+    margin-left: 90px; }
+  .message-row .message-body {
+    padding-bottom: 25px; }
   .message-row .message-heart {
     font-size: 16px;
     font-weight: bold;
@@ -70,8 +70,8 @@
     overflow: auto;
     color: #aeaeae; }
     .message-row .message-author > * {
+      float: left;
       font-size: 10px;
-      padding: 0 12px 0 0;
       margin: 0; }
     .message-row .message-author .info {
       font-size: 16px; }
@@ -79,14 +79,13 @@
         margin-left: 6px; }
     .message-row .message-author .action > * + * {
       margin-left: 6px; }
+    .message-row .message-author .user-message-count {
+      margin-left: 10px; }
     .message-row .message-author .message-date-created,
     .message-row .message-author .message-date-created-time-since {
       float: right; }
     .message-row .message-author .message-date-created {
       display: none; }
-  .message-row .message-body {
-    padding: 0 10px 0 0;
-    margin-bottom: 30px; }
   .message-row textarea {
     height: 100px;
     width: 98%;
@@ -110,16 +109,19 @@
         text-decoration: none; }
   .message-row .sidebar-message {
     float: left;
-    text-align: center;
-    padding-right: 10px; }
+    text-align: center; }
   .message-row .message-row {
-    margin-bottom: 10px;
+    padding-bottom: 0;
+    margin: 10px 0;
     -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); }
     .message-row .message-row .avatar {
       width: 25px;
       height: 25px; }
+    .message-row .message-row .message-author .info {
+      margin-left: 8px;
+      font-size: 14px; }
     .message-row .message-row .message-author > * {
       line-height: 25px; }
     .message-row .message-row .message-body {

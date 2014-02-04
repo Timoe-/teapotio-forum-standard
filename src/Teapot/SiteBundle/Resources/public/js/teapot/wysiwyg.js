@@ -3,6 +3,8 @@
 
     Teapot.wysiwyg = {
 
+        emptyMarkup: '<p>​</p>',
+
         selectors: {
             btn: {
                 reply: '.message-reply',
@@ -15,7 +17,8 @@
         },
 
         load: function ($element) {
-            var editors,
+            var self = this,
+                editors,
                 options;
 
             options = {
@@ -31,7 +34,7 @@
                     if ($(e.currentTarget).hasClass(className)) {
                         $(e.currentTarget)
                             .removeClass('redactor_wysiwyg-initial')
-                            .empty();
+                            .html(self.emptyMarkup);
                     }
                 }
             };
@@ -51,7 +54,7 @@
             var self = this;
 
             $.get($(btn).attr('href'), function (response) {
-                self.insert('<p>' + response.html + '</p>', $('#message-reply-to-topic .wysiwyg').first());
+                self.insert(response.html, $('#message-reply-to-topic .wysiwyg').first());
             });
         },
 
@@ -59,7 +62,7 @@
             var self = this;
 
             $.get($(btn).attr('href'), function (response) {
-                self.insert(response.html + '<p></p>', $('#message-reply-to-topic .wysiwyg').first());
+                self.insert(response.html + self.emptyMarkup, $('#message-reply-to-topic .wysiwyg').first());
             });
         },
 
