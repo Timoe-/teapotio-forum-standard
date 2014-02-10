@@ -38,7 +38,6 @@ class TopicController extends BaseController
         $request = $this->get('request');
 
         $topic = new Topic();
-
         $form = $this->createForm(new CreateTopicType(), $topic);
 
         if ($request->getMethod() === 'POST') {
@@ -61,7 +60,6 @@ class TopicController extends BaseController
                 $this->get('teapot.forum.topic')->save($topic);
 
                 $message = new Message();
-
                 $message->setBody($form['body']->getData());
                 $message->setTopic($topic);
                 $message->setIsTopicBody(true);
@@ -104,9 +102,7 @@ class TopicController extends BaseController
         }
 
         $board = $this->getBoard();
-
         $topic = $this->getTopic();
-
         $user = $this->getUser();
 
         if ($this->get('teapot.forum.access_permission')->canEdit($user, $topic) === false) {
@@ -161,17 +157,19 @@ class TopicController extends BaseController
     public function latestAction()
     {
         if ($this->get('teapot.forum.board')->getViewableBoards()->count() === 0) {
-            $title = $this->generateTitle('Access.is.restricted');
-            $params = array('page_title' => $title);
-
             if ($this->get('request')->isXmlHttpRequest() === true) {
+                $html = $this->get('teapot.user')
+                             ->renderAccessRestricted('TeapotBaseForumBundle:Topic:raw/nonAuthorized.html.twig');
                 return $this->renderJson(array(
-                    'html'   => $this->renderView('TeapotBaseForumBundle:Topic:raw/accessRestricted.html.twig', $params),
+                    'html'   => $html,
                     'title'  => $title
                 ));
             }
 
-            return $this->render('TeapotBaseForumBundle:Topic:accessRestricted.html.twig', $params);
+            $html = $this->get('teapot.user')
+                         ->renderAccessRestricted('TeapotBaseForumBundle:Topic:nonAuthorized.html.twig');
+
+            return $this->renderHtml($html);
         }
 
         $topicPerPage = 40;

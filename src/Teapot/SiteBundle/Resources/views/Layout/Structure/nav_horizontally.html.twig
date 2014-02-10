@@ -10,23 +10,12 @@
 
     <li><a href="#nav-top-users"><i class="icon-trophy"></i> {% trans %}Top.users{% endtrans %}</a></li>
 
-    <li><a href="#nav-latest-flags"><i class="icon-flag"></i> {% trans %}Flags{% endtrans %}</a></li>
+    {% if app.user|is_moderator == true %}
+      <li><a href="#nav-latest-flags"><i class="icon-flag"></i> {% trans %}Flags{% endtrans %}</a></li>
 
-    <li><a href="#nav-latest-moderation"><i class="icon-legal"></i> {% trans %}Moderations{% endtrans %}</a></li>
-
-    {% if app.user is not null %}
-      <li id="nav-user">
-        <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: app.user.slug, userId: app.user.id}) }}" class="to-main">
-          {{ app.user.username }}
-        </a>
-        <a href="{{ path('TeapotBaseUserBundle_settings', {userSlug: app.user.slug, userId: app.user.id}) }}" class="to-main">
-          {% trans %}settings{% endtrans %}
-        </a>
-        <a href="{{ path('TeapotBaseUserBundle_logout') }}">
-          {% trans %}logout{% endtrans %}
-        </a>
-      </li>
+      <li><a href="#nav-latest-moderation"><i class="icon-legal"></i> {% trans %}Moderations{% endtrans %}</a></li>
     {% endif %}
+
   {% endif %}
   </ul>
 </nav>

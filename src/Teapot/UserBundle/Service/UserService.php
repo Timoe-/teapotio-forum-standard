@@ -19,6 +19,8 @@ use Teapot\UserBundle\Entity\UserSettings;
 
 use Teapot\ForumBundle\Entity\UserStat;
 
+use Teapot\Base\UserBundle\Form\UserSignupType;
+
 use Teapot\Base\UserBundle\Service\UserService as BaseService;
 
 class UserService extends BaseService {
@@ -126,5 +128,30 @@ class UserService extends BaseService {
         $this->save($user);
 
         return array($user);
+    }
+
+    /**
+     * Provides all the default variables for the access restricted template
+     *
+     * @param  string  $template
+     * @param  array   $params = array()
+     *
+     * @return Response
+     */
+    public function renderAccessRestricted($template, $params = array())
+    {
+        $user = new User();
+        $form = $this->container->get('form.factory')->create(new UserSignupType(), $user);
+
+        $title = $this->container->get('teapot.site')->generateTitle('Access.is.restricted');
+
+        $defaultParams = array(
+          'page_title' => $title,
+          'form'       => $form->createView()
+        );
+
+        $params = array_merge($defaultParams, $params);
+
+        return $this->container->get('templating')->render($template, $params);
     }
 }

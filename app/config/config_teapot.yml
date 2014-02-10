@@ -1,6 +1,6 @@
 exercise_html_purifier:
     default:
-        HTML.AllowedCommentsRegexp: "/start @[0-9]+|start #[0-9]+|end$/sU"
+        HTML.AllowedCommentsRegexp: "/^start reply$|^start quote$|^end reply$|^end quote$/s"
 
 parameters:
     teapot_user.user_service.class: Teapot\UserBundle\Service\UserService

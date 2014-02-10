@@ -83,7 +83,7 @@
             var self = this,
                 state = event.state;
 
-            if (state !== null && state.t === 'main-view') {
+            if ($(this.selectors.content).length !== 0 && state !== null && state.t === 'main-view') {
                 $.get(state.p, function (data) {
                     self.inject(data);
                 });

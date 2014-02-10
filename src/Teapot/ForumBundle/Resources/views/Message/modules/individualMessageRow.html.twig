@@ -17,9 +17,7 @@
 {% endblock %}
 
 
-{% block row_id %}
-  message-{{ message.position }}
-{% endblock %}
+{% block row_id %}message-{{ message.position }}{% endblock %}
 
 {# Used for prompting user when the message has been flagged or moderated #}
 {% block row_prefix %}
@@ -39,7 +37,6 @@
 
 
 {% block row_author_suffix %}
-  {% include "TeapotBaseForumBundle:Message:modules/date.html.twig" with {message: message} %}
 {% endblock %}
 
 
@@ -49,6 +46,8 @@
 
 
 {% block row_footer_content %}
+  {% include "TeapotBaseForumBundle:Message:modules/date.html.twig" with {message: message} %}
+
   {% if show_action_buttons == true %}
 
     {#% if stars is defined %}

@@ -9,6 +9,9 @@
                 quote: '.message-quote',
                 toggle:'.btn-toggle',
                 main: 'a.to-main'
+            },
+            wysiwyg: {
+                wrapper: '.redactor_wysiwyg'
             }
         },
 
@@ -21,6 +24,7 @@
             this.buttonReply($wrapper);
             this.buttonQuote($wrapper);
             this.buttonToggle($wrapper);
+            this.wysiwygWrapperClick($wrapper);
             this.toMain($wrapper);
         },
 
@@ -42,6 +46,13 @@
             $wrapper.find(this.selectors.btn.toggle).on('click', function (event) {
                 event.preventDefault();
                 Teapot.page.fnEventToggle(this);
+            });
+        },
+
+        wysiwygWrapperClick: function ($wrapper) {
+            $wrapper.find(this.selectors.wysiwyg.wrapper).on('click', function (event) {
+                event.preventDefault();
+                Teapot.wysiwyg.fnEventWrapperClick(this);
             });
         },
 

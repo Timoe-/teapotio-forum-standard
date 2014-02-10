@@ -9,7 +9,7 @@
         a, div
             float: left
             display: block
-        div
+        & > div
             margin-left: 10px
             margin-right: 5px
             width: 20px
@@ -33,33 +33,3 @@
         text-align: center
         float: right
         margin-left: 10px
-
-@media (max-width: 695px)
-    .module-top-users
-        font-size: 10px
-        .total-messages
-            position: relative
-        .top-user
-            &:nth-child(even)
-                .total-messages
-                    top: -5px
-            &:nth-child(odd)
-                .total-messages
-                    top: 3px
-            .avatar
-                width: 18px
-                height: 18px
-
-@media (max-width: 495px)
-    .module-top-users
-        font-size: 8px
-        .top-user
-            &:nth-child(even)
-                .total-messages
-                    top: -5px
-            &:nth-child(odd)
-                .total-messages
-                    top: 3px
-            .avatar
-                width: 10px
-                height: 10px

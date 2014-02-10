@@ -236,6 +236,8 @@ class MessageController extends BaseController
 
         $stars = $this->get('teapot.forum.message_star')->getStarsByMessages($messages);
         $userStars = $this->get('teapot.forum.message_star')->getUserStarsByMessages($messages);
+
+        $flagTopic =  $this->get('teapot.forum.flag')->getByTopic($topic);
         $flags = $this->get('teapot.forum.flag')->getByMessages($messages, $board);
 
         foreach ($messages as $message) {
@@ -250,6 +252,7 @@ class MessageController extends BaseController
             'messages_per_page' => $messagesPerPage,
             'messages'          => $messages,
             'flags'             => $flags,
+            'flag_topic'        => $flagTopic,
             'stars'             => $stars,
             'current_board'     => $board,
             'topic'             => $topic,

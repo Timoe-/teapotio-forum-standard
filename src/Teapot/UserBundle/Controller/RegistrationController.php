@@ -35,24 +35,18 @@ class RegistrationController extends BaseController
             if ($form->isValid() === true) {
                 $em = $this->get('doctrine')->getManager();
 
-                $factory = $this->container->get('security.encoder_factory');
-                $encoder = $factory->getEncoder($user);
-                $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
-                $user->setPassword($password);
+                $groups = $em->getRepository('TeapotUserBundle:UserGroup')
+                            ->findBy(array('role' => 'ROLE_USER'));
 
-                $user->setSlug();
-                $user->setDateCreated(new \DateTime());
+                $image = $this->get('teapot.image')->getById(1); // 1: default image
 
-                $group = $em->getRepository('TeapotUserBundle:UserGroup')
-                            ->findOneBy(array('role' => 'ROLE_USER'));
-
-                if (false === $group instanceof UserGroup) {
-                    throw new \RuntimeException("No User Role");
-                }
-
-                $user->addGroup($group);
-
-                $this->get('teapot.user')->save($user);
+                $this->get('teapot.user')->setup(
+                    $user->getUsername(),
+                    $user->getEmail(),
+                    $user->getPassword(),
+                    $groups,
+                    array($image)
+                );
 
                 $this->redirect("/");
             }

@@ -58,6 +58,18 @@ class ImageService {
     }
 
     /**
+     * Return an image entity or null
+     *
+     * @param  integer  $id   an image id
+     *
+     * @return Image|null
+     */
+    public function getById($id)
+    {
+        return $this->em->getRepository('TeapotImageBundle:Image')->find($id);
+    }
+
+    /**
      * Setup the default image objects
      *
      * @return array

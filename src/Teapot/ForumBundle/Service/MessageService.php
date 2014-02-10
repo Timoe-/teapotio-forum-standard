@@ -22,11 +22,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class MessageService extends BaseMessageService
 {
-    protected $regexBodyReplyInput = '/(<!-- start @([0-9]+) -->)(.*)(<!-- end -->)/sU';
-    protected $regexBodyQuoteInput = '/(<!-- start #([0-9]+) -->)(.*)(<!-- end -->)/sU';
+    protected $regexBodyReplyInput =
+        '/(<div class="wysiwyg-block wysiwyg-reply wysiwyg-reply-([0-9]+)"><!-- start reply -->)(.*)(<!-- end reply --><\/div>)/s';
+    protected $regexBodyQuoteInput =
+        '/(<div class="wysiwyg-block wysiwyg-quote wysiwyg-quote-([0-9]+)"><!-- start quote -->)(.*)(<!-- end quote --><\/div>)/s';
 
-    protected $regexBodyReplyId = '/<!-- start @([0-9]+) -->/sU';
-    protected $regexBodyQuoteId = '/<!-- start #([0-9]+) -->/sU';
+    protected $regexBodyReplyId = '/wysiwyg-reply wysiwyg-reply-([0-9]+)/s';
+    protected $regexBodyQuoteId = '/wysiwyg-quote wysiwyg-quote-([0-9]+)/s';
 
     public function createMessage()
     {
@@ -94,7 +96,7 @@ class MessageService extends BaseMessageService
             },
             function ($id, $entity, $body) {
                 return str_replace(
-                    '<!-- start @'. $id .' --><!-- end -->',
+                    '<div class="wysiwyg-block wysiwyg-reply wysiwyg-reply-'. $id .'"><!-- start reply --><!-- end reply --></div>',
                     $this->renderBodyReply($entity),
                     $body
                 );
@@ -122,7 +124,7 @@ class MessageService extends BaseMessageService
             },
             function ($id, $entity, $body) {
                 return str_replace(
-                    '<!-- start #'. $id .' --><!-- end -->',
+                    '<div class="wysiwyg-block wysiwyg-quote wysiwyg-quote-'. $id .'"><!-- start quote --><!-- end quote --></div>',
                     $this->renderBodyQuote($entity),
                     $body
                 );

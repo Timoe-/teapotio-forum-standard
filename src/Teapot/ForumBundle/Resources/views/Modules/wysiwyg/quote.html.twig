@@ -1,7 +1,9 @@
 {# If you modify this markup, don't forget to change the method in MessageService.php accordingly  #}
 {% spaceless %}
-  <!-- start #{{ message.id }} -->
-    {% include "TeapotForumBundle:Message:modules/individualMessageRow.html.twig"
-       with {user: message.user, message: message, show_action_buttons: false} %}
-  <!-- end -->
+  <div class="wysiwyg-block wysiwyg-quote wysiwyg-quote-{{ message.id }}">
+    <!-- start quote -->
+      {% include "TeapotForumBundle:Message:modules/individualMessageRow.html.twig"
+         with {user: message.user, message: message, show_action_buttons: false} %}
+    <!-- end quote -->
+  </div>
 {% endspaceless %}

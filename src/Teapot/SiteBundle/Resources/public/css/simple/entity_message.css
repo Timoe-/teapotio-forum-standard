@@ -11,7 +11,8 @@
       margin-left: 0; }
 
 .message-row,
-.topic-header {
+.topic-header,
+.content > form > .control-group {
   padding: 10px; }
 
 .message-row {
@@ -30,10 +31,6 @@
       padding: 0 6px 2px; }
   .message-row:hover .message-footer a {
     color: #2768a1; }
-  .message-row .message-author:hover .message-date-created {
-    display: block; }
-  .message-row .message-author:hover .message-date-created-time-since {
-    display: none; }
   .message-row .avatar {
     width: 80px;
     height: 80px; }
@@ -56,6 +53,19 @@
     line-height: 24px; }
     .message-row .btn-like:hover {
       text-decoration: none; }
+  .message-row .message-date {
+    font-size: 10px; }
+    .message-row .message-date .message-date-created,
+    .message-row .message-date .message-date-created-time-since {
+      color: #aeaeae; }
+    .message-row .message-date .message-date-created-time-since {
+      display: block; }
+    .message-row .message-date .message-date-created {
+      display: none; }
+    .message-row .message-date:hover .message-date-created-time-since {
+      display: none; }
+    .message-row .message-date:hover .message-date-created {
+      display: block; }
   .message-row .message-author,
   .message-row .message-body {
     margin-left: 90px; }
@@ -72,20 +82,13 @@
     .message-row .message-author > * {
       float: left;
       font-size: 10px;
-      margin: 0; }
+      margin: 0 16px 0 0; }
     .message-row .message-author .info {
       font-size: 16px; }
       .message-row .message-author .info > * + * {
         margin-left: 6px; }
     .message-row .message-author .action > * + * {
       margin-left: 6px; }
-    .message-row .message-author .user-message-count {
-      margin-left: 10px; }
-    .message-row .message-author .message-date-created,
-    .message-row .message-author .message-date-created-time-since {
-      float: right; }
-    .message-row .message-author .message-date-created {
-      display: none; }
   .message-row textarea {
     height: 100px;
     width: 98%;
@@ -104,7 +107,7 @@
     .message-row .message-footer > * {
       display: inline-block;
       margin: 0 8px;
-      color: #d1d1d1; }
+      color: #aeaeae; }
       .message-row .message-footer > *:hover {
         text-decoration: none; }
   .message-row .sidebar-message {
@@ -113,9 +116,9 @@
   .message-row .message-row {
     padding-bottom: 0;
     margin: 10px 0;
-    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); }
+    -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35); }
     .message-row .message-row .avatar {
       width: 25px;
       height: 25px; }
@@ -131,3 +134,11 @@
     .message-row .message-row .message-body,
     .message-row .message-row .message-row-form {
       margin-left: 0; }
+
+@media (max-width: 595px) {
+  .message-row .avatar {
+    width: 50px;
+    height: 50px; }
+  .message-row .message-author,
+  .message-row .message-body {
+    margin-left: 60px; } }

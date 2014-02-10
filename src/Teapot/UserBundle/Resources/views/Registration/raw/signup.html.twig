@@ -7,11 +7,7 @@
   <form action="{{ path("TeapotBaseUserBundle_signup") }}" method="post" {{ form_enctype(form) }} class="two-col">
     <h2>{% trans %}Sign.up.message{% endtrans %}</h2>
 
-    {{ form_errors(form) }}
-
-    {{ form_widget(form) }}
-
-    <button class="btn btn-success pull-right">{% trans %}user.signup{% endtrans %}</button>
+    {% include "TeapotBaseUserBundle:Modules:form/signup.html.twig" with {form: form} %}
   </form>
 
 {% endblock %}

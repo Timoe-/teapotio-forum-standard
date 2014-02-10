@@ -9,11 +9,13 @@
 #}
 
 {% block form_path %}
+{% spaceless %}
   {% if board is null %}
     {{ forum_path("ForumNewTopicWithoutBoard") }}
   {% else %}
     {{ forum_path("ForumNewTopic", board) }}
   {% endif %}
+{% endspaceless %}
 {% endblock %}
 
 

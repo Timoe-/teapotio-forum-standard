@@ -12,42 +12,13 @@
 
 <div class="nav-action">
   <div class="nav-action-btn-grp">
-    {% if current_board is defined and current_board is not null %}
-      {% if app.user|can_create_topic(current_board) == true %}
-        <a href="{{ forum_path("ForumNewTopic", current_board) }}" class="nav-action-btn btn-new-topic to-main">
-          <i class="icon-pencil"></i>
-          {% trans %}New.topic{% endtrans %}
-        </a>
-      {% endif %}
 
-      {% if app.user|can_create_board(current_board) == true %}
-        <a href="{{ forum_path("ForumNewBoardInBoard", current_board) }}" class="nav-action-btn btn-new-board to-main">
-          <i class="icon-plus-sign"></i>
-          {% trans %}New.board{% endtrans %}
-        </a>
-      {% endif %}
-
-      {% if app.user|can_edit(current_board) == true %}
-        <a href="{{ forum_path("ForumEditBoard", current_board) }}" class="nav-action-btn btn-edit-board to-main">
-          <i class="icon-cog"></i>
-          {% trans %}Edit.board{% endtrans %}
-        </a>
-      {% endif %}
-    {% else %}
-      {% if app.user|can_create_topic(null) == true %}
-        <a href="{{ forum_path("ForumNewTopicWithoutBoard") }}" class="nav-action-btn btn-new-topic to-main">
-          <i class="icon-pencil"></i>
-          {% trans %}New.topic{% endtrans %}
-        </a>
-      {% endif %}
-
-      {% if app.user|can_create_board(null) == true %}
-        <a href="{{ forum_path("ForumNewBoard") }}" class="nav-action-btn btn-new-board to-main">
-          <i class="icon-plus-sign"></i>
-          {% trans %}New.board{% endtrans %}
-        </a>
-      {% endif %}
+    {% if app.user is not null %}
+      {% include "TeapotBaseUserBundle:Modules:nav.html.twig" with {user: app.user} %}
     {% endif %}
+
+    {% include "TeapotBaseForumBundle:Modules:nav_actions.html.twig" with {user: app.user, board: current_board} %}
+
   </div>
 
   {% if app.user|can_search == true %}

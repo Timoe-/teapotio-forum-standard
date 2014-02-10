@@ -37,10 +37,10 @@
         <div class="info">
           <a href="{{ path('TeapotBaseUserBundle_profile', {userSlug: user.slug, userId: user.id }) }}" class="to-main">{{ user.username }}</a>
         </div>
-        <div class="user-message-count">
+        {#<div class="user-message-count">
           <i class="icon icon-comment"></i>
           {{ user.forumStat.totalMessage }}
-        </div>
+        </div>#}
       {% endblock %}
 
       {% block row_author_suffix %}{% endblock %}

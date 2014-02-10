@@ -14,9 +14,8 @@
 namespace Teapot\Components;
 
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
-
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
 
 class Controller extends BaseController {
 
@@ -24,9 +23,9 @@ class Controller extends BaseController {
     /**
      * Renders json response.
      *
-     * @param string   $view       The view name
+     * @param  array  $data   an array of data to send
      *
-     * @return Response A Response instance
+     * @return Response  A Response instance
      */
     public function renderJson(array $data = array())
     {
@@ -35,6 +34,22 @@ class Controller extends BaseController {
 
         return $response;
     }
+
+    /**
+     * Given some HTML send a response.
+     *
+     * @param string   $html   The view name
+     *
+     * @return Response A Response instance
+     */
+    public function renderHtml($html)
+    {
+        $response = new Response();
+        $response->setContent($html);
+
+        return $response;
+    }
+
 
     /**
      * Generate a title and translate etc etc
@@ -46,7 +61,7 @@ class Controller extends BaseController {
      */
     public function generateTitle($key, $params = array())
     {
-        return $this->get('translator')->trans($key, $params) .' - '. $this->container->getParameter('forum_title');
+        return $this->get('teapot.site')->generateTitle($key, $params);
     }
 
 }

@@ -1,40 +1,28 @@
 @import 'mcolor'
 @import 'melements'
 
+.nav-action,
 nav#nav-horizontal
+    overflow: auto
     @include element-border
     @include element-spaced
     background-color: rgba(0,0,0,0.35)
-    font-size: 12px
     a
         color: #fff
         line-height: 17px
         &:hover
             text-decoration: none
         i
-            font-size: 16px
-            margin-right: 4px
+            font-size: 14px
     ul
         list-style: none
         margin: 0
         padding: 0
     li
-        margin: 6px 12px
+        margin: 6px 10px
         display: inline-block
 
 .nav-action
-    @include element-spaced
-    overflow: auto
-    font-size: 14px
-    a:hover
-        text-decoration: none
-    .nav-action-btn-grp
-        float: left
-        overflow: auto
-        margin-right: 10px
-    .nav-action-btn,
-    .search label
-        display: block
     .search
         input,
         input:hover,
@@ -63,13 +51,6 @@ nav#nav-horizontal
             color: #EFEFEF
         label
             padding: 4px
-    .nav-action-btn
-        float: left
-        line-height: 17px
-        padding: 8px 12px
-        i
-            margin-right: 2px
-            font-size: 18px
 .nav-profile
     .avatar
         float: left
@@ -111,14 +92,13 @@ nav#nav-horizontal
         margin: 8px 0 0
         font-size: 12px
 
-#nav-user
+.nav-user
     float: right
-    a
-        display: inline-block
-    a:nth-child(n+2)
+    li:nth-child(n+2)
         font-size: 11px
-        margin-left: 4px
-        color: $font-color-secondary
+        margin-left: 0
+        a
+            color: $font-color-secondary
 
 #nav-components
     display: none

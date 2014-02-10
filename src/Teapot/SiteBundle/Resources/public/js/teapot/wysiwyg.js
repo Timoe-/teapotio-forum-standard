@@ -66,6 +66,10 @@
             });
         },
 
+        fnEventWrapperClick: function (wrapper) {
+            console.log($(wrapper).next().redactor('getBlock'));
+        },
+
         insert: function (html, $element) {
             $element.redactor('insertHtmlAdvanced', html);
         }
