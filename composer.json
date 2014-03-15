@@ -7,7 +7,7 @@
         "php": ">=5.3.3",
         "symfony/symfony": "~2.4",
         "incenteev/composer-parameter-handler": "~2.0",
-        "teapotio/teapotio-forum": "dev-master",
+        "teapotio/teapotio-forum": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
