@@ -1,5 +1,5 @@
 imports:
-    - { resource: config_teapot.yml }
+    - { resource: @TeapotioSiteBundle/Resources/config/config.yml }
     - { resource: parameters.yml }
     - { resource: parameters_local.yml }
     - { resource: security.yml }
@@ -25,14 +25,14 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'TeapotSiteBundle:Layout:form_div_layout.html.twig'
+            - 'TeapotioSiteBundle:Layout:form_div_layout.html.twig'
 
 gregwar_image: ~
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
-    use_controller: true
+    use_controller: false
     # bundles:        [ ]
     #java: /usr/bin/java
     filters:
@@ -64,11 +64,11 @@ doctrine:
                 metadata_cache_driver: array
                 connection:       default
                 mappings:
-                    TeapotForumBundle: ~
-                    TeapotSiteBundle: ~
-                    TeapotUserBundle: ~
-                    TeapotImageBundle: ~
-                    TeapotUserBundle: ~
+                    TeapotioForumBundle: ~
+                    TeapotioSiteBundle: ~
+                    TeapotioUserBundle: ~
+                    TeapotioImageBundle: ~
+                    TeapotioUserBundle: ~
 
 parameters:
 

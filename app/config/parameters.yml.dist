@@ -2,7 +2,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     teapot_duo
+    database_name:     teapotio_duo
     database_user:     root
     database_password: ~
 
@@ -14,4 +14,4 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    forum_title:       Teapot Discussion Boards
+    forum_title:       Teapotio Discussion Boards

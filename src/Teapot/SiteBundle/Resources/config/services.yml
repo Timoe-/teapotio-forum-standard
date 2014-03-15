@@ -1,7 +1,0 @@
-parameters:
-    teapot_site.main_service.class:   Teapot\SiteBundle\Service\MainService
-
-services:
-    teapot.site:
-        class: %teapot_site.main_service.class%
-        arguments: [@service_container]

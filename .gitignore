@@ -10,8 +10,7 @@ composer.phar
 .sass-cache
 
 app/config/parameters_local.yml
-src/Teapot/Base/ForumBundle
-src/Teapot/Base/UserBundle
+src/Teapotio
 web/cache
 web/img/uploads
 !web/img/uploads/images/default_avatar.png

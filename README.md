@@ -3,9 +3,9 @@ Forum's main structure built on top of Symfony
 
 This repository is public and its main purpose is the Forum website. If you think it will useful for you, feel free to use it.
 
-Teapot Base Bundles Required:
-* https://github.com/Teapot/BaseForumBundle
-* https://github.com/Teapot/BaseUserBundle
+Teapotio Base Bundles Required:
+* https://github.com/Teapotio/BaseForumBundle
+* https://github.com/Teapotio/BaseUserBundle
 
 Make sure your environment fits Symfony's requirements.
 

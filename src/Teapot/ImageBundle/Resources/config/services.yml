@@ -1,8 +1,0 @@
-parameters:
-   teapot_image.image_service.class: Teapot\ImageBundle\Service\ImageService
-   teapot_image.image_repository.class: Teapot\ImageBundle\Repository\ImageRepository
-
-services:
-   teapot.image:
-       class: %teapot_image.image_service.class%
-       arguments: [@service_container]

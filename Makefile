@@ -1,5 +1,5 @@
 compile-sass-default:
-	sass src/Teapot/SiteBundle/Resources/sass:src/Teapot/SiteBundle/Resources/public/css
+	sass src/Teapotio/SiteBundle/Resources/sass:src/Teapotio/SiteBundle/Resources/public/css
 
 compile-sass-default-watch:
-	sass --watch src/Teapot/SiteBundle/Resources/sass:src/Teapot/SiteBundle/Resources/public/css
+	sass --watch src/Teapotio/SiteBundle/Resources/sass:src/Teapotio/SiteBundle/Resources/public/css

@@ -1,3 +1,0 @@
-TeapotImageBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: TeapotImageBundle:Default:index }

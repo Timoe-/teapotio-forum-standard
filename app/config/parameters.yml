@@ -12,4 +12,4 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    forum_title: Teapot
+    forum_title: Teapotio

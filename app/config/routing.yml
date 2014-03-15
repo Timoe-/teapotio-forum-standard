@@ -1,15 +1,15 @@
-TeapotImageBundle:
-    resource: "@TeapotImageBundle/Resources/config/routing.yml"
+TeapotioImageBundle:
+    resource: "@TeapotioImageBundle/Resources/config/routing.yml"
     prefix:   /
 
-TeapotSiteBundle:
-    resource: "@TeapotSiteBundle/Resources/config/routing.yml"
+TeapotioSiteBundle:
+    resource: "@TeapotioSiteBundle/Resources/config/routing.yml"
     prefix:   /
 
-TeapotBaseUserBundle:
-    resource: "@TeapotBaseUserBundle/Resources/config/routing.yml"
+TeapotioBaseUserBundle:
+    resource: "@TeapotioBaseUserBundle/Resources/config/routing.yml"
     prefix:   /
 
-TeapotForumBundle:
-    resource: "@TeapotForumBundle/Resources/config/routing.yml"
+TeapotioForumBundle:
+    resource: "@TeapotioForumBundle/Resources/config/routing.yml"
     prefix:   /
