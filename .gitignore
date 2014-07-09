@@ -1,22 +1,25 @@
-web/bundles/
-app/bootstrap.php.cache
-app/cache/*
-app/logs/*
-build/
-vendor
-bin
-composer.phar
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/app/phpunit.xml
+/build/
+/vendor/
+/bin/
+/composer.phar
 .DS_Store
 .sass-cache
 
-app/config/parameters_local.yml
 src/Teapotio
+src/Temp
 web/cache
 web/img/uploads
 !web/img/uploads/images/default_avatar.png
 web/css
 web/js
-src/Temp
 
 *.php~
 

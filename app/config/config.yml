@@ -23,9 +23,6 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
-    form:
-        resources:
-            - 'TeapotioSiteBundle:Layout:form_div_layout.html.twig'
 
 gregwar_image: ~
 

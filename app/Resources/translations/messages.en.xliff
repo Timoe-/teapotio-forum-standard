@@ -10,18 +10,6 @@
                 <source>Unsaved</source>
                 <target>Unsaved</target>
             </trans-unit>
-            <trans-unit id="3">
-                <source>Customize.style</source>
-                <target>Customize your experience</target>
-            </trans-unit>
-            <trans-unit id="4">
-                <source>Background.color</source>
-                <target>Background color</target>
-            </trans-unit>
-            <trans-unit id="5">
-                <source>Background.tiled</source>
-                <target>Background tiled</target>
-            </trans-unit>
             <trans-unit id="6">
                 <source>Yes</source>
                 <target>Yes</target>

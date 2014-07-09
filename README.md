@@ -6,6 +6,8 @@ This is the standalone version of the forum software.
 
 If you'd like to integrate the forum to your website, please refer [to the README file located in the teapotio-forum repository].
 
+This platform is constantly being updated.
+
 ## Installation
 
 1. Download composer.phar
@@ -14,7 +16,7 @@ If you'd like to integrate the forum to your website, please refer [to the READM
 
 2. Create a new project
 
-``` 
+``` $ php composer.phar create-project -s dev teapotio/teapotio-forum-standard myProjectFolder
 
 This repository is public and its main purpose is the Forum website. If you think it will useful for you, feel free to use it.
 
