@@ -1,7 +1,6 @@
 imports:
     - { resource: @TeapotioSiteBundle/Resources/config/config.yml }
     - { resource: parameters.yml }
-    - { resource: parameters_local.yml }
     - { resource: security.yml }
 
 framework:
