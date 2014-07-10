@@ -11,15 +11,14 @@
 /bin/
 /composer.phar
 .DS_Store
-.sass-cache
 
-src/Teapotio
-src/Temp
-web/cache
-web/img/uploads
+/src/Teapotio
+/src/Temp
+/web/cache
+/web/img/uploads/images/*
 !web/img/uploads/images/default_avatar.png
-web/css
-web/js
+/web/css
+/web/js
 
 *.php~
 

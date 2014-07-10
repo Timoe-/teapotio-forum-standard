@@ -24,7 +24,9 @@ This platform is constantly being updated.
 
 4. Run the following commands
 
-` $ php app/console doctrine:database:create `
-` $ php app/console doctrine:schema:create `
-` $ php app/console teapotio:forum:install`
-` $ php app/console assetic:dump `
+```
+$ php app/console doctrine:database:create
+$ php app/console doctrine:schema:create
+$ php app/console teapotio:forum:install
+$ php app/console assetic:dump
+```
