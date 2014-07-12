@@ -16,8 +16,8 @@ doctrine:
     orm:
         entity_managers:
             default:
-                query_cache_driver: apc
-                metadata_cache_driver: apc
+                # query_cache_driver: opcache
+                # metadata_cache_driver: opcache
 
 monolog:
     handlers:
