@@ -1,1 +1,0 @@
-php app/console doctrine:database:create && php app/console doctrine:schema:create && php app/console teapotio:forum:install
