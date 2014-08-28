@@ -1,7 +1,8 @@
 imports:
     - { resource: @TeapotioSiteBundle/Resources/config/config.yml }
+    - { resource: @TeapotioSiteBundle/Resources/config/config_default.yml }
     - { resource: parameters.yml }
-    - { resource: security.yml }
+    - { resource: @TeapotioSiteBundle/Resources/config/security.yml }
 
 framework:
     #esi:             ~
