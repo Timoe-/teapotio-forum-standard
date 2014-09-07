@@ -14,4 +14,5 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    forum_title:       Teapotio Discussion Boards
+    teapotio.security.encryption.cost: 1
+    forum_title:                       Teapotio Discussion Boards
